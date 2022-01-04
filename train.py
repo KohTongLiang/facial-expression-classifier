@@ -1,5 +1,6 @@
 import torch
 import argparse
+import os
 
 from model import Classifier
 from torch import nn
@@ -75,6 +76,9 @@ if __name__ == "__main__":
     epochs = args.epoch
     lr = args.lr
     device = args.device
+
+    # create checkpoints directory
+    os.makedirs('./checkpoints', 0o777, exist_ok=True)
 
     # prepare dataset
     transform = transforms.Compose([
